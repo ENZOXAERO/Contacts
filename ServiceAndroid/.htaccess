@@ -1,0 +1,20 @@
+Options All -Indexes
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+<IfModule mod_headers.c>
+    #X-Frame-Options
+    Header always append X-Frame-Options SAMEORIGIN
+    #X-XSS-Protection
+    Header set X-XSS-Protection "1; mode=block"
+    #X-Contect-Type
+    Header set X-Content-Type-Options nosniff
+</IfModule>
+#
+#<Directory ~ "\app">
+#  Order allow,deny
+#  Deny from all
+#</Directory>

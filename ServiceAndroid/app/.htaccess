@@ -1,0 +1,13 @@
+Options All -Indexes
+
+#disable exectuion .php files
+<files *.php>
+    deny from all
+</files>
+
+#protect .htaccess
+<files ~ "^.*\.([Hh][Tt][Aa])">
+    order allow,deny
+    deny from all
+    satisfy all
+</files>
